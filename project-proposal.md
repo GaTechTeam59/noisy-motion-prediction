@@ -1,5 +1,5 @@
 - Team name: Project Team 59
-- Is this a Facebook project?: No.
+- Is this a Facebook project? No.
 - Project title: Human Motion Prediction in Noisy Environments
 
 **Project summary.**
@@ -19,8 +19,10 @@ not marred with noise. Our project seeks to:
 
 **Approach.**
 - Researchers have used techniques from computer vision as well as deep
-learning to detect and identify movements. Our approach to investigate 
-the problem of motion prediction in the presence of noise is to:
+learning to detect and identify movements from animated and live-action data
+sources.
+Our approach to investigate the problem of motion prediction in the presence of
+noise is to:
     - create/replicate a baseline (*e.g.*, a convolutional 
     sequence-to-sequence model);
     - vary the amount of noise in the (training and test) dataset 
@@ -28,9 +30,14 @@ the problem of motion prediction in the presence of noise is to:
     adversarially); and
     - compare the results and performance noise-sensitive models against
     the baseline (noise-free) model.
+- We will apply our approach on a subset of live-action movements from the human
+motion database (HMDB) dataset (described below) to train and optimize our
+models before studying our problem in the context of a larger portion of (or
+perhaps the full) HMDB dataset.
 - *Stretch goal:* to generate novel human movements (*e.g.*, dancing).
 
 **Resources / related work.**
++ ["HMDB: A Large Video Database for Human Motion Recognition"](https://serre-lab.clps.brown.edu/wp-content/uploads/2012/08/Kuehne_etal_iccv11.pdf) – Kuehne et al.
 + ["AMASS: Archive of Motion Capture as Surface Shapes"](https://arxiv.org/pdf/1904.03278.pdf) – Mahmood et al.
 + ["A Spatio-temporal Transformer for 3D HumanMotion Prediction"](https://arxiv.org/pdf/2004.08692.pdf) – Aksan et al.
 + ["Structured Prediction Helps 3D Human Motion Modelling"](https://arxiv.org/pdf/1910.09070.pdf) – Aksan et al.
@@ -39,12 +46,12 @@ the problem of motion prediction in the presence of noise is to:
 + ["Convolutional Sequence to Sequence Model for Human Dynamics"](https://arxiv.org/pdf/1805.00655.pdf) – Li et al.
 
 **Datasets (provide a link to the dataset).**
-- We plan to use the AMASS dataset, which "is a large database of human
-motion unifying different optical marker-based motion capture datasets by
-representing them within a common framework and parameterization." The
-dataset is sufficiently large to support deep learning "having more than 40
-hours of motion data, spanning over 300 subjects, more than 11,000 motions."
-- The data can be found here: <https://amass.is.tue.mpg.de/index.html>.
+- We plan to use the HMDB dataset, which contains 51
+distinct actions (*e.g.*, smiling, eating, climbing, etc.) categorized into five
+types (facial actions, body movements, etc.) with at least 101 examples per
+action, for our project.
+- The data can be found here:
+<https://serre-lab.clps.brown.edu/resource/hmdb-a-large-human-motion-database/>.
 
 **Group members.**
 - Matthew Adamson

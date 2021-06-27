@@ -61,4 +61,4 @@ action, for our project.
 
 Are you looking for more members? No.
 
-**Piazza post link:** **[TBD]**.
+**Piazza post link:** <https://piazza.com/class/kni1g8lh43l3ie?cid=223_f127>.

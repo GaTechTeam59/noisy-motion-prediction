@@ -46,4 +46,4 @@ models before studying our problem in the context of a larger portion of (or per
 
 Are you looking for more members? No.
 
-**Piazza post link:** **[TBD]**.
+**Piazza post link:** <https://piazza.com/class/kni1g8lh43l3ie?cid=223_f127>.

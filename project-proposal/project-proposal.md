@@ -3,17 +3,20 @@
 - Project title: Human Motion Prediction in Noisy Environments
 
 **Project summary.**
-- Detecting and idenfying human motion arises in a number of applications
+- Detecting and identifying human motion arises in a number of applications
 including animation (movies and video games), video analysis (security,
 sports, etc.), and robotics (self-driving cars). Although movement detection and
 identification have roots in classical computer vision (CV) problems, deep
 learning provides new avenues to approach these problems, blending classical CV
 tools with modern computational and inferential paradigms—for example,
 augmenting (parallel) convolutional neural networks with (learnable) optical 
-flow neural network layers). That said, deep learning approaches have worked
-with idealized data sets that are not marred with noise. Our project seeks to:
-    - train and optimize models using noisy data (based on existing 
-    architectures used for noise-free datasets);
+flow neural network layers. As most deep learning approaches have worked
+with idealized data sets that are not marred with noise, our project explores 
+a recognition network's robustness to image noise.
+- To do this, our project aims to evaluate the impact and robustness of human motion
+recognition models through the following stages:
+    - build an existing architecture used for noise-free datasets;
+    - train and optimize the model using noisy data;
     - predict motion in the presence of noise; and
     - compare the performance of models trained with noise versus those 
     trained in the absence of noise.
@@ -24,12 +27,12 @@ to detect and identify movements from animated and live-action data sources. Our
 approach to investigate the problem of motion prediction in the presence of
 noise is to:
     - create/replicate a baseline (*e.g.*, a convolutional sequence-to-sequence
-    model with an optical flow layer—as in "Representation Flow for Action
-    Recognition");
-    - vary the amount of noise in the (training and test) dataset 
-    (*e.g.*, adding noise-energy into the image/sequence — potentially 
-    adversarially); and
-    - compare the results and performance of noise-sensitive models against the
+    model with an optical flow layer — followign the model described in
+    "Representation Flow for Action Recognition");
+    - augment the training dataset by varying the amount of noise in the training dataset (and replicating labels) (*e.g.*, adding noise-energy into the image/sequence 
+    — potentially adversarially); 
+    - augment the test dataset through similar addition of noise energy; and
+    - compare the results and performance of noise-injected models against the
     baseline (noise-free) model.
 - We will apply our approach on a subset of live-action movements from the human
 motion database (HMDB) dataset (described below) to train and optimize our

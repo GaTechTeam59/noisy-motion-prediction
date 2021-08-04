@@ -5,7 +5,7 @@ import numpy as np
 
 def add_overlay(foldername,filename,overlay_type, opacity=1, blur=0, write=False):
 	#Load videos
-	vidcap_sample = cv2.VideoCapture("serre/hmdb51_org/"+foldername+"/"+foldername+"/"+filename);
+	vidcap_sample = cv2.VideoCapture(foldername+"/"+filename);
 	vidcap_overlay = cv2.VideoCapture("overlays/overlay_"+overlay_type+".mp4")
 
 	
@@ -14,7 +14,9 @@ def add_overlay(foldername,filename,overlay_type, opacity=1, blur=0, write=False
 	
 	#Save video if used for testing purposes.
 	outshape = (image_sample.shape[1], image_sample.shape[0])
-	if write: out_video = cv2.VideoWriter("hmdb_overlay/"+overlay_type+"/"+foldername+"/"+filename, cv2.VideoWriter_fourcc('F', 'M', 'P', '4'), 30, outshape)
+	if write: out_video = cv2.VideoWriter(foldername+"_overlay"+"/"+filename[:-4]+"_"+overlay_type+".avi", cv2.VideoWriter_fourcc('F', 'M', 'P', '4'), 30, outshape)
+	#if write: out_video = cv2.VideoWriter("ssd/hmdb_overlay/"+ overlay_type + "_" + filename, cv2.VideoWriter_fourcc(*'mp4v'), 30, outshape)
+
 	
 	#This selects a random overlay frame to start with.
 	skip_frames = random.randint(0,30);
@@ -34,6 +36,15 @@ def add_overlay(foldername,filename,overlay_type, opacity=1, blur=0, write=False
 			#Opacity over 1 amplifies the overlay.
 			new_img = cv2.addWeighted(image_sample,1,image_overlay,opacity,0)
 			
+			#Example of how gaussian blur is applied.  the blur size must be an odd integer.
+			####if blur > 0: new_img = cv2.GaussianBlur(new_img,(blur,blur),cv2.BORDER_DEFAULT)
+			
+			#Adjust contrast
+			#new_img = cv2.convertScaleAbs(new_img, alpha=(255/np.mean(new_img))/2)
+			
+			##new_img = kmeans_color_quantization(new_img, clusters=16)
+			
+
 			if write: out_video.write(new_img)
 			
 			#Iterate to the next frame.
@@ -49,7 +60,7 @@ def test_overlays(show=False):
 	folders = ['cartwheel', 'climb', 'dive', 'kick', 'pullup', 'run', 'sit', 'situp', 'somersault', 'stand']
 	for f in range(len(folders)):
 		print("FOLDER:",folders[f])
-		files = os.listdir("serre/hmdb51_org/"+folders[f]+"/"+folders[f])
+		files = os.listdir(folders[f])
 		overlays = ["lights","snow","fog","rain","fire","grunge"]
 		
 		opacity_multipliers = [0.25,0.5,0.5,0.5,4,0.4]#Some overlays are stronger than others.
@@ -61,5 +72,10 @@ def test_overlays(show=False):
 				for j in range(len(overlays)):
 					this_opacity = random.random() * opacity_multipliers[j]+0.25;
 					add_overlay(folders[f],files[i],overlays[j],opacity=this_opacity,write=True);
-test_overlays();			
+##test_overlays();			
 
+##get_file_sizes();	
+
+
+test_overlays(show=True);
+	
